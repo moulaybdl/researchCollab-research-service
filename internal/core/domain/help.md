@@ -1,0 +1,1 @@
+Here define the middle man struct for interaction
