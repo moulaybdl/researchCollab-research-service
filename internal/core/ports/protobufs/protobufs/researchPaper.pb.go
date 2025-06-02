@@ -574,13 +574,13 @@ const file_researchPaper_proto_rawDesc = "" +
 	"\fresearcherID\x18\x05 \x01(\x05R\fresearcherID\x12 \n" +
 	"\vpublishYear\x18\x06 \x01(\x05R\vpublishYear\"4\n" +
 	"\fListofPapers\x12$\n" +
-	"\x06papers\x18\x01 \x03(\v2\f.hello.PaperR\x06papers2\xab\x03\n" +
+	"\x06papers\x18\x01 \x03(\v2\f.hello.PaperR\x06papers2\xc1\x03\n" +
 	"\rResearchPaper\x12E\n" +
 	"\x14GetAllResearchPapers\x12\x16.google.protobuf.Empty\x1a\x13.hello.ListofPapers\"\x00\x12]\n" +
 	"\x1aGetResearchPaperByCategory\x12(.hello.GetResearchPaperByCategoryRequest\x1a\x13.hello.ListofPapers\"\x00\x12J\n" +
 	"\x14GetResearchPaperByID\x12\".hello.GetResearchPaperByIDRequest\x1a\f.hello.Paper\"\x00\x12^\n" +
-	"\x13CreateResearchPaper\x12!.hello.CreateResearchPaperRequest\x1a\".hello.CreateResearchPaperResponse\"\x00\x12H\n" +
-	"\x13DeleteResearchPaper\x12!.hello.DeleteResearchPaperRequest\x1a\f.hello.state\"\x00B\fZ\n" +
+	"\x13CreateResearchPaper\x12!.hello.CreateResearchPaperRequest\x1a\".hello.CreateResearchPaperResponse\"\x00\x12^\n" +
+	"\x13DeleteResearchPaper\x12!.hello.DeleteResearchPaperRequest\x1a\".hello.DeleteResearchPaperResponse\"\x00B\fZ\n" +
 	"/protobufsb\x06proto3"
 
 var (
@@ -619,7 +619,7 @@ var file_researchPaper_proto_depIdxs = []int32{
 	8, // 7: hello.ResearchPaper.GetResearchPaperByCategory:output_type -> hello.ListofPapers
 	7, // 8: hello.ResearchPaper.GetResearchPaperByID:output_type -> hello.Paper
 	4, // 9: hello.ResearchPaper.CreateResearchPaper:output_type -> hello.CreateResearchPaperResponse
-	0, // 10: hello.ResearchPaper.DeleteResearchPaper:output_type -> hello.state
+	6, // 10: hello.ResearchPaper.DeleteResearchPaper:output_type -> hello.DeleteResearchPaperResponse
 	6, // [6:11] is the sub-list for method output_type
 	1, // [1:6] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name

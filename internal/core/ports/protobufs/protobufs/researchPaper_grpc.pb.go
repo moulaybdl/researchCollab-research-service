@@ -38,7 +38,7 @@ type ResearchPaperClient interface {
 	GetResearchPaperByCategory(ctx context.Context, in *GetResearchPaperByCategoryRequest, opts ...grpc.CallOption) (*ListofPapers, error)
 	GetResearchPaperByID(ctx context.Context, in *GetResearchPaperByIDRequest, opts ...grpc.CallOption) (*Paper, error)
 	CreateResearchPaper(ctx context.Context, in *CreateResearchPaperRequest, opts ...grpc.CallOption) (*CreateResearchPaperResponse, error)
-	DeleteResearchPaper(ctx context.Context, in *DeleteResearchPaperRequest, opts ...grpc.CallOption) (*State, error)
+	DeleteResearchPaper(ctx context.Context, in *DeleteResearchPaperRequest, opts ...grpc.CallOption) (*DeleteResearchPaperResponse, error)
 }
 
 type researchPaperClient struct {
@@ -89,9 +89,9 @@ func (c *researchPaperClient) CreateResearchPaper(ctx context.Context, in *Creat
 	return out, nil
 }
 
-func (c *researchPaperClient) DeleteResearchPaper(ctx context.Context, in *DeleteResearchPaperRequest, opts ...grpc.CallOption) (*State, error) {
+func (c *researchPaperClient) DeleteResearchPaper(ctx context.Context, in *DeleteResearchPaperRequest, opts ...grpc.CallOption) (*DeleteResearchPaperResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(State)
+	out := new(DeleteResearchPaperResponse)
 	err := c.cc.Invoke(ctx, ResearchPaper_DeleteResearchPaper_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -110,7 +110,7 @@ type ResearchPaperServer interface {
 	GetResearchPaperByCategory(context.Context, *GetResearchPaperByCategoryRequest) (*ListofPapers, error)
 	GetResearchPaperByID(context.Context, *GetResearchPaperByIDRequest) (*Paper, error)
 	CreateResearchPaper(context.Context, *CreateResearchPaperRequest) (*CreateResearchPaperResponse, error)
-	DeleteResearchPaper(context.Context, *DeleteResearchPaperRequest) (*State, error)
+	DeleteResearchPaper(context.Context, *DeleteResearchPaperRequest) (*DeleteResearchPaperResponse, error)
 	mustEmbedUnimplementedResearchPaperServer()
 }
 
@@ -133,7 +133,7 @@ func (UnimplementedResearchPaperServer) GetResearchPaperByID(context.Context, *G
 func (UnimplementedResearchPaperServer) CreateResearchPaper(context.Context, *CreateResearchPaperRequest) (*CreateResearchPaperResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateResearchPaper not implemented")
 }
-func (UnimplementedResearchPaperServer) DeleteResearchPaper(context.Context, *DeleteResearchPaperRequest) (*State, error) {
+func (UnimplementedResearchPaperServer) DeleteResearchPaper(context.Context, *DeleteResearchPaperRequest) (*DeleteResearchPaperResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteResearchPaper not implemented")
 }
 func (UnimplementedResearchPaperServer) mustEmbedUnimplementedResearchPaperServer() {}

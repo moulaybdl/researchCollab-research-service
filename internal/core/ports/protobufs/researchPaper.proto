@@ -12,7 +12,7 @@ service ResearchPaper {
   rpc GetResearchPaperByCategory (GetResearchPaperByCategoryRequest) returns (ListofPapers) {}
   rpc GetResearchPaperByID (GetResearchPaperByIDRequest) returns (Paper) {}
   rpc CreateResearchPaper (CreateResearchPaperRequest) returns (CreateResearchPaperResponse) {}
-  rpc DeleteResearchPaper (DeleteResearchPaperRequest) returns (state) {}
+  rpc DeleteResearchPaper (DeleteResearchPaperRequest) returns (DeleteResearchPaperResponse) {}
 };
 
 message state {
