@@ -3,13 +3,13 @@ package main
 import (
 	"fmt"
 	"log"
+	"moulaybdl/researchCollab/researchSevice/internal/adapters/handler"
 	"moulaybdl/researchCollab/researchSevice/internal/config"
 	"moulaybdl/researchCollab/researchSevice/internal/logger"
 	"net"
 	"os"
 
 	pb "moulaybdl/researchCollab/researchSevice/internal/core/ports/protobufs/protobufs"
-	"moulaybdl/researchCollab/researchSevice/internal/core/services"
 
 	"google.golang.org/grpc"
 )
@@ -72,8 +72,8 @@ func main() {
 		// Create gRPC server
 		s := grpc.NewServer()
 		
-		// Register service
-		pb.RegisterGreeterServer(s, &services.Server{})
+		// Register all services here
+		pb.RegisterGreeterServer(s, &handler.ResearchPaperServer{})
 		
 		log.Println("gRPC server listening on port 50051")
 		
