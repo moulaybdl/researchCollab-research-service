@@ -52,11 +52,11 @@ message CreateResearchPaperResponse {
 
 // #######################
 message DeleteResearchPaperRequest {
-
+  string id = 1;
 }
 
 message DeleteResearchPaperResponse {
-
+  string state = 1;
 }
 // #######################
 

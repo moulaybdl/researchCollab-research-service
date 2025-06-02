@@ -20,7 +20,11 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	ResearchPaper_GetAllResearchPapers_FullMethodName = "/hello.ResearchPaper/GetAllResearchPapers"
+	ResearchPaper_GetAllResearchPapers_FullMethodName       = "/hello.ResearchPaper/GetAllResearchPapers"
+	ResearchPaper_GetResearchPaperByCategory_FullMethodName = "/hello.ResearchPaper/GetResearchPaperByCategory"
+	ResearchPaper_GetResearchPaperByID_FullMethodName       = "/hello.ResearchPaper/GetResearchPaperByID"
+	ResearchPaper_CreateResearchPaper_FullMethodName        = "/hello.ResearchPaper/CreateResearchPaper"
+	ResearchPaper_DeleteResearchPaper_FullMethodName        = "/hello.ResearchPaper/DeleteResearchPaper"
 )
 
 // ResearchPaperClient is the client API for ResearchPaper service.
@@ -31,6 +35,10 @@ const (
 type ResearchPaperClient interface {
 	// Sends a greeting
 	GetAllResearchPapers(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*ListofPapers, error)
+	GetResearchPaperByCategory(ctx context.Context, in *GetResearchPaperByCategoryRequest, opts ...grpc.CallOption) (*ListofPapers, error)
+	GetResearchPaperByID(ctx context.Context, in *GetResearchPaperByIDRequest, opts ...grpc.CallOption) (*Paper, error)
+	CreateResearchPaper(ctx context.Context, in *CreateResearchPaperRequest, opts ...grpc.CallOption) (*CreateResearchPaperResponse, error)
+	DeleteResearchPaper(ctx context.Context, in *DeleteResearchPaperRequest, opts ...grpc.CallOption) (*State, error)
 }
 
 type researchPaperClient struct {
@@ -51,6 +59,46 @@ func (c *researchPaperClient) GetAllResearchPapers(ctx context.Context, in *empt
 	return out, nil
 }
 
+func (c *researchPaperClient) GetResearchPaperByCategory(ctx context.Context, in *GetResearchPaperByCategoryRequest, opts ...grpc.CallOption) (*ListofPapers, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ListofPapers)
+	err := c.cc.Invoke(ctx, ResearchPaper_GetResearchPaperByCategory_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *researchPaperClient) GetResearchPaperByID(ctx context.Context, in *GetResearchPaperByIDRequest, opts ...grpc.CallOption) (*Paper, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Paper)
+	err := c.cc.Invoke(ctx, ResearchPaper_GetResearchPaperByID_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *researchPaperClient) CreateResearchPaper(ctx context.Context, in *CreateResearchPaperRequest, opts ...grpc.CallOption) (*CreateResearchPaperResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateResearchPaperResponse)
+	err := c.cc.Invoke(ctx, ResearchPaper_CreateResearchPaper_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *researchPaperClient) DeleteResearchPaper(ctx context.Context, in *DeleteResearchPaperRequest, opts ...grpc.CallOption) (*State, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(State)
+	err := c.cc.Invoke(ctx, ResearchPaper_DeleteResearchPaper_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ResearchPaperServer is the server API for ResearchPaper service.
 // All implementations must embed UnimplementedResearchPaperServer
 // for forward compatibility.
@@ -59,6 +107,10 @@ func (c *researchPaperClient) GetAllResearchPapers(ctx context.Context, in *empt
 type ResearchPaperServer interface {
 	// Sends a greeting
 	GetAllResearchPapers(context.Context, *emptypb.Empty) (*ListofPapers, error)
+	GetResearchPaperByCategory(context.Context, *GetResearchPaperByCategoryRequest) (*ListofPapers, error)
+	GetResearchPaperByID(context.Context, *GetResearchPaperByIDRequest) (*Paper, error)
+	CreateResearchPaper(context.Context, *CreateResearchPaperRequest) (*CreateResearchPaperResponse, error)
+	DeleteResearchPaper(context.Context, *DeleteResearchPaperRequest) (*State, error)
 	mustEmbedUnimplementedResearchPaperServer()
 }
 
@@ -71,6 +123,18 @@ type UnimplementedResearchPaperServer struct{}
 
 func (UnimplementedResearchPaperServer) GetAllResearchPapers(context.Context, *emptypb.Empty) (*ListofPapers, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllResearchPapers not implemented")
+}
+func (UnimplementedResearchPaperServer) GetResearchPaperByCategory(context.Context, *GetResearchPaperByCategoryRequest) (*ListofPapers, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetResearchPaperByCategory not implemented")
+}
+func (UnimplementedResearchPaperServer) GetResearchPaperByID(context.Context, *GetResearchPaperByIDRequest) (*Paper, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetResearchPaperByID not implemented")
+}
+func (UnimplementedResearchPaperServer) CreateResearchPaper(context.Context, *CreateResearchPaperRequest) (*CreateResearchPaperResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateResearchPaper not implemented")
+}
+func (UnimplementedResearchPaperServer) DeleteResearchPaper(context.Context, *DeleteResearchPaperRequest) (*State, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteResearchPaper not implemented")
 }
 func (UnimplementedResearchPaperServer) mustEmbedUnimplementedResearchPaperServer() {}
 func (UnimplementedResearchPaperServer) testEmbeddedByValue()                       {}
@@ -111,6 +175,78 @@ func _ResearchPaper_GetAllResearchPapers_Handler(srv interface{}, ctx context.Co
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ResearchPaper_GetResearchPaperByCategory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetResearchPaperByCategoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResearchPaperServer).GetResearchPaperByCategory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResearchPaper_GetResearchPaperByCategory_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResearchPaperServer).GetResearchPaperByCategory(ctx, req.(*GetResearchPaperByCategoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResearchPaper_GetResearchPaperByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetResearchPaperByIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResearchPaperServer).GetResearchPaperByID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResearchPaper_GetResearchPaperByID_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResearchPaperServer).GetResearchPaperByID(ctx, req.(*GetResearchPaperByIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResearchPaper_CreateResearchPaper_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateResearchPaperRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResearchPaperServer).CreateResearchPaper(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResearchPaper_CreateResearchPaper_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResearchPaperServer).CreateResearchPaper(ctx, req.(*CreateResearchPaperRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResearchPaper_DeleteResearchPaper_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteResearchPaperRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResearchPaperServer).DeleteResearchPaper(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResearchPaper_DeleteResearchPaper_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResearchPaperServer).DeleteResearchPaper(ctx, req.(*DeleteResearchPaperRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // ResearchPaper_ServiceDesc is the grpc.ServiceDesc for ResearchPaper service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -121,6 +257,22 @@ var ResearchPaper_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetAllResearchPapers",
 			Handler:    _ResearchPaper_GetAllResearchPapers_Handler,
+		},
+		{
+			MethodName: "GetResearchPaperByCategory",
+			Handler:    _ResearchPaper_GetResearchPaperByCategory_Handler,
+		},
+		{
+			MethodName: "GetResearchPaperByID",
+			Handler:    _ResearchPaper_GetResearchPaperByID_Handler,
+		},
+		{
+			MethodName: "CreateResearchPaper",
+			Handler:    _ResearchPaper_CreateResearchPaper_Handler,
+		},
+		{
+			MethodName: "DeleteResearchPaper",
+			Handler:    _ResearchPaper_DeleteResearchPaper_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

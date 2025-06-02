@@ -66,6 +66,347 @@ func (x *State) GetMessage() string {
 	return ""
 }
 
+// #######################
+type GetResearchPaperByCategoryRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Category      string                 `protobuf:"bytes,1,opt,name=category,proto3" json:"category,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetResearchPaperByCategoryRequest) Reset() {
+	*x = GetResearchPaperByCategoryRequest{}
+	mi := &file_researchPaper_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetResearchPaperByCategoryRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetResearchPaperByCategoryRequest) ProtoMessage() {}
+
+func (x *GetResearchPaperByCategoryRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_researchPaper_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetResearchPaperByCategoryRequest.ProtoReflect.Descriptor instead.
+func (*GetResearchPaperByCategoryRequest) Descriptor() ([]byte, []int) {
+	return file_researchPaper_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *GetResearchPaperByCategoryRequest) GetCategory() string {
+	if x != nil {
+		return x.Category
+	}
+	return ""
+}
+
+// #######################
+type GetResearchPaperByIDRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PaperId       string                 `protobuf:"bytes,1,opt,name=paper_id,json=paperId,proto3" json:"paper_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetResearchPaperByIDRequest) Reset() {
+	*x = GetResearchPaperByIDRequest{}
+	mi := &file_researchPaper_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetResearchPaperByIDRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetResearchPaperByIDRequest) ProtoMessage() {}
+
+func (x *GetResearchPaperByIDRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_researchPaper_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetResearchPaperByIDRequest.ProtoReflect.Descriptor instead.
+func (*GetResearchPaperByIDRequest) Descriptor() ([]byte, []int) {
+	return file_researchPaper_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *GetResearchPaperByIDRequest) GetPaperId() string {
+	if x != nil {
+		return x.PaperId
+	}
+	return ""
+}
+
+// #######################
+type CreateResearchPaperRequest struct {
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	Title            string                 `protobuf:"bytes,1,opt,name=title,proto3" json:"title,omitempty"`
+	ShortDescription string                 `protobuf:"bytes,2,opt,name=short_description,json=shortDescription,proto3" json:"short_description,omitempty"`
+	PaperLink        string                 `protobuf:"bytes,3,opt,name=paper_link,json=paperLink,proto3" json:"paper_link,omitempty"`
+	ResearcherId     string                 `protobuf:"bytes,4,opt,name=researcher_id,json=researcherId,proto3" json:"researcher_id,omitempty"`
+	PublishYear      string                 `protobuf:"bytes,5,opt,name=publish_year,json=publishYear,proto3" json:"publish_year,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
+}
+
+func (x *CreateResearchPaperRequest) Reset() {
+	*x = CreateResearchPaperRequest{}
+	mi := &file_researchPaper_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateResearchPaperRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateResearchPaperRequest) ProtoMessage() {}
+
+func (x *CreateResearchPaperRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_researchPaper_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateResearchPaperRequest.ProtoReflect.Descriptor instead.
+func (*CreateResearchPaperRequest) Descriptor() ([]byte, []int) {
+	return file_researchPaper_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *CreateResearchPaperRequest) GetTitle() string {
+	if x != nil {
+		return x.Title
+	}
+	return ""
+}
+
+func (x *CreateResearchPaperRequest) GetShortDescription() string {
+	if x != nil {
+		return x.ShortDescription
+	}
+	return ""
+}
+
+func (x *CreateResearchPaperRequest) GetPaperLink() string {
+	if x != nil {
+		return x.PaperLink
+	}
+	return ""
+}
+
+func (x *CreateResearchPaperRequest) GetResearcherId() string {
+	if x != nil {
+		return x.ResearcherId
+	}
+	return ""
+}
+
+func (x *CreateResearchPaperRequest) GetPublishYear() string {
+	if x != nil {
+		return x.PublishYear
+	}
+	return ""
+}
+
+type CreateResearchPaperResponse struct {
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	Id               string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Title            string                 `protobuf:"bytes,2,opt,name=title,proto3" json:"title,omitempty"`
+	ShortDescription string                 `protobuf:"bytes,3,opt,name=short_description,json=shortDescription,proto3" json:"short_description,omitempty"`
+	PaperLink        string                 `protobuf:"bytes,4,opt,name=paper_link,json=paperLink,proto3" json:"paper_link,omitempty"`
+	ResearcherId     string                 `protobuf:"bytes,5,opt,name=researcher_id,json=researcherId,proto3" json:"researcher_id,omitempty"`
+	PublishYear      string                 `protobuf:"bytes,6,opt,name=publish_year,json=publishYear,proto3" json:"publish_year,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
+}
+
+func (x *CreateResearchPaperResponse) Reset() {
+	*x = CreateResearchPaperResponse{}
+	mi := &file_researchPaper_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateResearchPaperResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateResearchPaperResponse) ProtoMessage() {}
+
+func (x *CreateResearchPaperResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_researchPaper_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateResearchPaperResponse.ProtoReflect.Descriptor instead.
+func (*CreateResearchPaperResponse) Descriptor() ([]byte, []int) {
+	return file_researchPaper_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *CreateResearchPaperResponse) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *CreateResearchPaperResponse) GetTitle() string {
+	if x != nil {
+		return x.Title
+	}
+	return ""
+}
+
+func (x *CreateResearchPaperResponse) GetShortDescription() string {
+	if x != nil {
+		return x.ShortDescription
+	}
+	return ""
+}
+
+func (x *CreateResearchPaperResponse) GetPaperLink() string {
+	if x != nil {
+		return x.PaperLink
+	}
+	return ""
+}
+
+func (x *CreateResearchPaperResponse) GetResearcherId() string {
+	if x != nil {
+		return x.ResearcherId
+	}
+	return ""
+}
+
+func (x *CreateResearchPaperResponse) GetPublishYear() string {
+	if x != nil {
+		return x.PublishYear
+	}
+	return ""
+}
+
+// #######################
+type DeleteResearchPaperRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteResearchPaperRequest) Reset() {
+	*x = DeleteResearchPaperRequest{}
+	mi := &file_researchPaper_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteResearchPaperRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteResearchPaperRequest) ProtoMessage() {}
+
+func (x *DeleteResearchPaperRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_researchPaper_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteResearchPaperRequest.ProtoReflect.Descriptor instead.
+func (*DeleteResearchPaperRequest) Descriptor() ([]byte, []int) {
+	return file_researchPaper_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *DeleteResearchPaperRequest) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+type DeleteResearchPaperResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	State         string                 `protobuf:"bytes,1,opt,name=state,proto3" json:"state,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteResearchPaperResponse) Reset() {
+	*x = DeleteResearchPaperResponse{}
+	mi := &file_researchPaper_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteResearchPaperResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteResearchPaperResponse) ProtoMessage() {}
+
+func (x *DeleteResearchPaperResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_researchPaper_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteResearchPaperResponse.ProtoReflect.Descriptor instead.
+func (*DeleteResearchPaperResponse) Descriptor() ([]byte, []int) {
+	return file_researchPaper_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *DeleteResearchPaperResponse) GetState() string {
+	if x != nil {
+		return x.State
+	}
+	return ""
+}
+
+// ####################### GENERAL PURPOSE MESSAGES
 type Paper struct {
 	state            protoimpl.MessageState `protogen:"open.v1"`
 	Id               int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
@@ -80,7 +421,7 @@ type Paper struct {
 
 func (x *Paper) Reset() {
 	*x = Paper{}
-	mi := &file_researchPaper_proto_msgTypes[1]
+	mi := &file_researchPaper_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -92,7 +433,7 @@ func (x *Paper) String() string {
 func (*Paper) ProtoMessage() {}
 
 func (x *Paper) ProtoReflect() protoreflect.Message {
-	mi := &file_researchPaper_proto_msgTypes[1]
+	mi := &file_researchPaper_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -105,7 +446,7 @@ func (x *Paper) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Paper.ProtoReflect.Descriptor instead.
 func (*Paper) Descriptor() ([]byte, []int) {
-	return file_researchPaper_proto_rawDescGZIP(), []int{1}
+	return file_researchPaper_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *Paper) GetId() int32 {
@@ -159,7 +500,7 @@ type ListofPapers struct {
 
 func (x *ListofPapers) Reset() {
 	*x = ListofPapers{}
-	mi := &file_researchPaper_proto_msgTypes[2]
+	mi := &file_researchPaper_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -171,7 +512,7 @@ func (x *ListofPapers) String() string {
 func (*ListofPapers) ProtoMessage() {}
 
 func (x *ListofPapers) ProtoReflect() protoreflect.Message {
-	mi := &file_researchPaper_proto_msgTypes[2]
+	mi := &file_researchPaper_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -184,7 +525,7 @@ func (x *ListofPapers) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListofPapers.ProtoReflect.Descriptor instead.
 func (*ListofPapers) Descriptor() ([]byte, []int) {
-	return file_researchPaper_proto_rawDescGZIP(), []int{2}
+	return file_researchPaper_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *ListofPapers) GetPapers() []*Paper {
@@ -200,7 +541,30 @@ const file_researchPaper_proto_rawDesc = "" +
 	"\n" +
 	"\x13researchPaper.proto\x12\x05hello\x1a\x1bgoogle/protobuf/empty.proto\"!\n" +
 	"\x05state\x12\x18\n" +
-	"\amessage\x18\x01 \x01(\tR\amessage\"\xbf\x01\n" +
+	"\amessage\x18\x01 \x01(\tR\amessage\"?\n" +
+	"!GetResearchPaperByCategoryRequest\x12\x1a\n" +
+	"\bcategory\x18\x01 \x01(\tR\bcategory\"8\n" +
+	"\x1bGetResearchPaperByIDRequest\x12\x19\n" +
+	"\bpaper_id\x18\x01 \x01(\tR\apaperId\"\xc6\x01\n" +
+	"\x1aCreateResearchPaperRequest\x12\x14\n" +
+	"\x05title\x18\x01 \x01(\tR\x05title\x12+\n" +
+	"\x11short_description\x18\x02 \x01(\tR\x10shortDescription\x12\x1d\n" +
+	"\n" +
+	"paper_link\x18\x03 \x01(\tR\tpaperLink\x12#\n" +
+	"\rresearcher_id\x18\x04 \x01(\tR\fresearcherId\x12!\n" +
+	"\fpublish_year\x18\x05 \x01(\tR\vpublishYear\"\xd7\x01\n" +
+	"\x1bCreateResearchPaperResponse\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n" +
+	"\x05title\x18\x02 \x01(\tR\x05title\x12+\n" +
+	"\x11short_description\x18\x03 \x01(\tR\x10shortDescription\x12\x1d\n" +
+	"\n" +
+	"paper_link\x18\x04 \x01(\tR\tpaperLink\x12#\n" +
+	"\rresearcher_id\x18\x05 \x01(\tR\fresearcherId\x12!\n" +
+	"\fpublish_year\x18\x06 \x01(\tR\vpublishYear\",\n" +
+	"\x1aDeleteResearchPaperRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\"3\n" +
+	"\x1bDeleteResearchPaperResponse\x12\x14\n" +
+	"\x05state\x18\x01 \x01(\tR\x05state\"\xbf\x01\n" +
 	"\x05Paper\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x14\n" +
 	"\x05title\x18\x02 \x01(\tR\x05title\x12+\n" +
@@ -210,9 +574,13 @@ const file_researchPaper_proto_rawDesc = "" +
 	"\fresearcherID\x18\x05 \x01(\x05R\fresearcherID\x12 \n" +
 	"\vpublishYear\x18\x06 \x01(\x05R\vpublishYear\"4\n" +
 	"\fListofPapers\x12$\n" +
-	"\x06papers\x18\x01 \x03(\v2\f.hello.PaperR\x06papers2V\n" +
+	"\x06papers\x18\x01 \x03(\v2\f.hello.PaperR\x06papers2\xab\x03\n" +
 	"\rResearchPaper\x12E\n" +
-	"\x14GetAllResearchPapers\x12\x16.google.protobuf.Empty\x1a\x13.hello.ListofPapers\"\x00B\fZ\n" +
+	"\x14GetAllResearchPapers\x12\x16.google.protobuf.Empty\x1a\x13.hello.ListofPapers\"\x00\x12]\n" +
+	"\x1aGetResearchPaperByCategory\x12(.hello.GetResearchPaperByCategoryRequest\x1a\x13.hello.ListofPapers\"\x00\x12J\n" +
+	"\x14GetResearchPaperByID\x12\".hello.GetResearchPaperByIDRequest\x1a\f.hello.Paper\"\x00\x12^\n" +
+	"\x13CreateResearchPaper\x12!.hello.CreateResearchPaperRequest\x1a\".hello.CreateResearchPaperResponse\"\x00\x12H\n" +
+	"\x13DeleteResearchPaper\x12!.hello.DeleteResearchPaperRequest\x1a\f.hello.state\"\x00B\fZ\n" +
 	"/protobufsb\x06proto3"
 
 var (
@@ -227,19 +595,33 @@ func file_researchPaper_proto_rawDescGZIP() []byte {
 	return file_researchPaper_proto_rawDescData
 }
 
-var file_researchPaper_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_researchPaper_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
 var file_researchPaper_proto_goTypes = []any{
-	(*State)(nil),         // 0: hello.state
-	(*Paper)(nil),         // 1: hello.Paper
-	(*ListofPapers)(nil),  // 2: hello.ListofPapers
-	(*emptypb.Empty)(nil), // 3: google.protobuf.Empty
+	(*State)(nil), // 0: hello.state
+	(*GetResearchPaperByCategoryRequest)(nil), // 1: hello.GetResearchPaperByCategoryRequest
+	(*GetResearchPaperByIDRequest)(nil),       // 2: hello.GetResearchPaperByIDRequest
+	(*CreateResearchPaperRequest)(nil),        // 3: hello.CreateResearchPaperRequest
+	(*CreateResearchPaperResponse)(nil),       // 4: hello.CreateResearchPaperResponse
+	(*DeleteResearchPaperRequest)(nil),        // 5: hello.DeleteResearchPaperRequest
+	(*DeleteResearchPaperResponse)(nil),       // 6: hello.DeleteResearchPaperResponse
+	(*Paper)(nil),                             // 7: hello.Paper
+	(*ListofPapers)(nil),                      // 8: hello.ListofPapers
+	(*emptypb.Empty)(nil),                     // 9: google.protobuf.Empty
 }
 var file_researchPaper_proto_depIdxs = []int32{
-	1, // 0: hello.ListofPapers.papers:type_name -> hello.Paper
-	3, // 1: hello.ResearchPaper.GetAllResearchPapers:input_type -> google.protobuf.Empty
-	2, // 2: hello.ResearchPaper.GetAllResearchPapers:output_type -> hello.ListofPapers
-	2, // [2:3] is the sub-list for method output_type
-	1, // [1:2] is the sub-list for method input_type
+	7, // 0: hello.ListofPapers.papers:type_name -> hello.Paper
+	9, // 1: hello.ResearchPaper.GetAllResearchPapers:input_type -> google.protobuf.Empty
+	1, // 2: hello.ResearchPaper.GetResearchPaperByCategory:input_type -> hello.GetResearchPaperByCategoryRequest
+	2, // 3: hello.ResearchPaper.GetResearchPaperByID:input_type -> hello.GetResearchPaperByIDRequest
+	3, // 4: hello.ResearchPaper.CreateResearchPaper:input_type -> hello.CreateResearchPaperRequest
+	5, // 5: hello.ResearchPaper.DeleteResearchPaper:input_type -> hello.DeleteResearchPaperRequest
+	8, // 6: hello.ResearchPaper.GetAllResearchPapers:output_type -> hello.ListofPapers
+	8, // 7: hello.ResearchPaper.GetResearchPaperByCategory:output_type -> hello.ListofPapers
+	7, // 8: hello.ResearchPaper.GetResearchPaperByID:output_type -> hello.Paper
+	4, // 9: hello.ResearchPaper.CreateResearchPaper:output_type -> hello.CreateResearchPaperResponse
+	0, // 10: hello.ResearchPaper.DeleteResearchPaper:output_type -> hello.state
+	6, // [6:11] is the sub-list for method output_type
+	1, // [1:6] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
 	1, // [1:1] is the sub-list for extension extendee
 	0, // [0:1] is the sub-list for field type_name
@@ -256,7 +638,7 @@ func file_researchPaper_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_researchPaper_proto_rawDesc), len(file_researchPaper_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   3,
+			NumMessages:   9,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
