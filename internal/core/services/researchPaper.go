@@ -3,6 +3,7 @@ package services
 import (
 	"moulaybdl/researchCollab/researchSevice/internal/core/domain"
 	"moulaybdl/researchCollab/researchSevice/internal/core/ports/repository"
+	"strconv"
 )
 
 
@@ -23,8 +24,14 @@ func (s *ResearchPaperService) GetAllResearchPapers() ([]domain.ResearchPaper, e
 }
 
 
-func (s *ResearchPaperService) GetResearchPaperByID(id string) (domain.ResearchPaper, error) {
-	return s.researchPaperRepo.GetResearchPaperByID(id)
+func (s *ResearchPaperService) GetResearchPaperByID(id string) (*domain.ResearchPaper, error) {
+	// parse the string to integer:
+	int_id, err := strconv.Atoi(id)
+	if err != nil {
+		return nil, err
+	}
+
+	return s.researchPaperRepo.GetResearchPaperByID(int_id)
 }
 
 func (s *ResearchPaperService) GetReasearchPapersByCategory(categoryID string) ([]domain.ResearchPaper, error) {

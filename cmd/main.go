@@ -4,12 +4,14 @@ import (
 	"fmt"
 	"log"
 	"moulaybdl/researchCollab/researchSevice/internal/adapters/handler"
+	"moulaybdl/researchCollab/researchSevice/internal/adapters/repository"
 	"moulaybdl/researchCollab/researchSevice/internal/config"
 	"moulaybdl/researchCollab/researchSevice/internal/logger"
 	"net"
 	"os"
 
 	pb "moulaybdl/researchCollab/researchSevice/internal/core/ports/protobufs/protobufs"
+	"moulaybdl/researchCollab/researchSevice/internal/core/services"
 
 	"google.golang.org/grpc"
 )
@@ -39,13 +41,13 @@ func main() {
 	// define here any services (db, cache, mail server, ...)
 
 	// open a connection to the database
-	// logger.Logger.Info("Connecting to the database...")
-  // _, err = repository.OpenDB(cfg.DSN)
-  // if err != nil {
-  //   logger.Logger.Error(err.Error())
-  //   return
-  // }
-  // logger.Logger.Info("Connection to database established !")
+	logger.Logger.Info("Connecting to the database...")
+  DB, err := repository.OpenDB(cfg.DSN)
+  if err != nil {
+    logger.Logger.Error(err.Error())
+    return
+  }
+  logger.Logger.Info("Connection to database established !")
 
 
 	// logger.Logger.Info("Starting the server...")
@@ -73,7 +75,10 @@ func main() {
 		s := grpc.NewServer()
 		
 		// Register all services here
-		pb.RegisterGreeterServer(s, &handler.ResearchPaperServer{})
+
+		researchPaperService := services.NewResearchPaperService(DB)
+		researchPaperServer := handler.NewResearchPaperServer(researchPaperService)
+		pb.RegisterResearchPaperServer(s, researchPaperServer)
 		
 		log.Println("gRPC server listening on port 50051")
 		

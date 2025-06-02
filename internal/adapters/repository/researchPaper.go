@@ -31,7 +31,7 @@ func (r *DB) GetAllResearchPapers() ([]domain.ResearchPaper, error) {
 	return papers, nil
 }
 
-func (r *DB) GetResearchPaperByID(id string) (domain.ResearchPaper, error) {
+func (r *DB) GetResearchPaperByID(id int) (*domain.ResearchPaper, error) {
 	query := `
 	SELECT * FROM researchpaper WHERE id = $1
 	`
@@ -39,10 +39,10 @@ func (r *DB) GetResearchPaperByID(id string) (domain.ResearchPaper, error) {
 	var paper domain.ResearchPaper
 	err := r.db.QueryRow(query, id).Scan(&paper.ID, &paper.Title, &paper.ShortDescription, &paper.Link, &paper.ResearchTeam, &paper.PublishedAt)
 	if err != nil {
-		return domain.ResearchPaper{}, err
+		return &domain.ResearchPaper{}, err
 	}
 
-	return paper, nil
+	return &paper, nil
 }
 
 func (r *DB) GetReasearchPapersByCategory(categoryID string) ([]domain.ResearchPaper, error) {

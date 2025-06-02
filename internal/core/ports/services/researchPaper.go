@@ -7,7 +7,7 @@ type ResearchPaperServiceInterface interface {
 		// GetAllResearchPapers retrieves all research papers.
 	GetAllResearchPapers() ([]domain.ResearchPaper, error)
 	// GetResearchPaperByID retrieves a research paper by its ID.
-	GetResearchPaperByID(id string) (domain.ResearchPaper, error)
+	GetResearchPaperByID(id string) (*domain.ResearchPaper, error)
 	// GetReasearchPapersByCategory retrieves research papers by category ID.
 	GetReasearchPapersByCategory(categoryID string) ([]domain.ResearchPaper, error)
 	// GetResearchPapersByResearcher retrieves research papers by researcher ID.

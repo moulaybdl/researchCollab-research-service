@@ -1,0 +1,78 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+
+package hello;
+option go_package = "/protobufs";
+
+
+// The greeting service definition.
+service ResearchPaper {
+  // Sends a greeting
+  rpc GetAllResearchPapers (google.protobuf.Empty) returns (ListofPapers) {}
+  rpc GetResearchPaperByCategory (GetResearchPaperByCategoryRequest) returns (ListofPapers) {}
+  rpc GetResearchPaperByID (GetResearchPaperByIDRequest) returns (Paper) {}
+  rpc CreateResearchPaper (CreateResearchPaperRequest) returns (CreateResearchPaperResponse) {}
+  rpc DeleteResearchPaper (DeleteResearchPaperRequest) returns (state) {}
+};
+
+message state {
+  string message = 1;
+};
+
+// #######################
+message GetResearchPaperByCategoryRequest {
+  string category = 1;
+};
+// #######################
+
+// #######################
+message GetResearchPaperByIDRequest {
+  string paper_id = 1;
+}
+// #######################
+
+// #######################
+message CreateResearchPaperRequest {
+  string title = 1;
+  string short_description = 2;
+  string paper_link = 3;
+  string researcher_id = 4;
+  string publish_year = 5;
+}
+
+message CreateResearchPaperResponse {
+  string id = 1;
+  string title = 2;
+  string short_description = 3;
+  string paper_link = 4;
+  string researcher_id = 5;
+  string publish_year = 6;
+}
+// #######################
+
+// #######################
+message DeleteResearchPaperRequest {
+
+}
+
+message DeleteResearchPaperResponse {
+
+}
+// #######################
+
+
+
+
+// ####################### GENERAL PURPOSE MESSAGES 
+message Paper {
+  int32 id = 1;
+  string title = 2;
+  string short_description = 3;
+  string paper_link = 4;
+  int32 researcherID = 5;
+  int32 publishYear = 6;
+};
+
+message ListofPapers {
+  repeated Paper papers = 1;
+}
